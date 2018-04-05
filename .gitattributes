@@ -1,0 +1,5 @@
+TIPseqHunter_data.tar.gz.part2 filter=lfs diff=lfs merge=lfs -text
+TIPseqHunter_data.tar.gz.part3 filter=lfs diff=lfs merge=lfs -text
+TIPseqHunter_data.tar.gz.part4 filter=lfs diff=lfs merge=lfs -text
+TIPseqHunter_data.tar.gz.part0 filter=lfs diff=lfs merge=lfs -text
+TIPseqHunter_data.tar.gz.part1 filter=lfs diff=lfs merge=lfs -text
