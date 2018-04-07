@@ -183,7 +183,7 @@ logfile=${fastq_r1}.log
 outsam=${cleaned_fq1/$key_r1/}.sam
 outbam=${outsam/%.sam/.bam}
 outsortbam=${outbam/%.bam/.pcsort.bam}
-outnamesortbamfilepre=${outsortbam/%.bam/.qyname}
+#outnamesortbamfilepre=${outsortbam/%.bam/.qyname}
 outnamesortbamfile=${outsortbam/%.bam/.qyname.bam}
 
 # quality control (using Trimmomatic)
@@ -198,7 +198,7 @@ java -jar ${picardpath}/SortSam.jar SO=coordinate VALIDATION_STRINGENCY=SILENT M
 # index sorted bam file using picard
 java -jar ${picardpath}/BuildBamIndex.jar VALIDATION_STRINGENCY=SILENT MAX_RECORDS_IN_RAM=500000 INPUT=${algn_hs_path}/${outsortbam} OUTPUT=${algn_hs_path}/${outsortbam}.bai
 # sort bam file based on query name
-samtools sort -n ${algn_hs_path}/${outsortbam} ${algn_hs_path}/${outnamesortbamfilepre}
+samtools sort -n ${algn_hs_path}/${outsortbam} -o ${algn_hs_path}/${outnamesortbamfile}
 
 # bowtie alignment to L1Hs
 ${bowtie2path}/bowtie2 -X $Xvalue --local --phred33 --sensitive -p $nslots -x ${l1hs_refindex} -1 ${fastq_path}/${cleaned_fq1} -2 ${fastq_path}/${cleaned_fq2} -S ${algn_te_path}/${outsam}
@@ -209,7 +209,7 @@ java -jar ${picardpath}/SortSam.jar SO=coordinate VALIDATION_STRINGENCY=SILENT M
 # index sorted bam file using picard
 java -jar ${picardpath}/BuildBamIndex.jar VALIDATION_STRINGENCY=SILENT MAX_RECORDS_IN_RAM=500000 INPUT=${algn_te_path}/${outsortbam} OUTPUT=${algn_te_path}/${outsortbam}.bai
 # sort bam file based on query name
-samtools sort -n ${algn_te_path}/${outsortbam} ${algn_te_path}/${outnamesortbamfilepre}
+samtools sort -n ${algn_te_path}/${outsortbam} -o ${algn_te_path}/${outnamesortbamfile}
 
 ########## second-step: feature calculation for model #############
 
