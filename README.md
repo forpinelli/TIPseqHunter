@@ -14,7 +14,7 @@
 > Pay attention! You will need to use `sudo` in the commands if you are not member of the docker group
 
 ### Usage
-Once installed the docker image, the user can run the script [`tipseq_hunter_run.sh`](https://github.com/galantelab/TIPseqHunter/blob/master/tipseq_hunter_run.sh) in order to automatize the process of creating the container and running the pipeline. This script runs both **TIPseqHunterPipelineJar.sh** and **TIPseqHunterPipelineJarSomatic.sh** in sequence, so the user only needs to call it one time.
+Once installed the docker image, the user can run the script [`tipseq_hunter_run.sh`](https://github.com/galantelab/TIPseqHunter/blob/master/tipseq_hunter_run.sh). In order to automatize the process of creating the container and running the pipeline,this script runs both **TIPseqHunterPipelineJar.sh** and **TIPseqHunterPipelineJarSomatic.sh** in sequence, so the user only needs to call it one time.
 
 ```
 $ ./tipseq_hunter.sh -h
